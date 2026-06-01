@@ -1,0 +1,39 @@
+graph TD
+    A[开始混合推荐] --> B[获取用户ID和推荐数量]
+    B --> C{检查用户是否存在}
+    C -->|不存在| D[返回热门歌曲]
+    C -->|存在| E{用户是否有偏好曲风}
+    
+    E -->|无偏好| F[检查是否有歌曲数据]
+    F -->|无数据| D
+    F -->|有数据| G[执行随机推荐]
+    G --> H[返回随机推荐结果]
+    
+    E -->|有偏好| I[获取用户偏好曲风列表]
+    I --> J[执行基于内容的推荐<br>获取2N首歌曲]
+    I --> K[执行物品协同过滤推荐<br>获取2N首歌曲]
+    
+    K --> L[过滤协同推荐结果<br>只保留偏好曲风歌曲]
+    
+    J --> M[创建歌曲评分字典]
+    L --> M
+    
+    M --> N[为内容推荐结果<br>计算加权分数: 0.7权重]
+    M --> O[为协同推荐结果<br>计算加权分数: 0.3权重]
+    
+    N --> P[合并评分结果<br>去重并累加分数]
+    O --> P
+    
+    P --> Q[按综合评分排序]
+    Q --> R[选择前N首歌曲]
+    R --> S[返回混合推荐结果]
+    
+    D --> T[结束]
+    H --> T
+    S --> T
+    
+    classDef box fill:#ffffff,stroke:#000000,stroke-width:2px,font-size:14px;
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T box;
+    
+    classDef decision fill:#ffffff,stroke:#000000,stroke-width:2px,font-size:14px,shape:diamond;
+    class C,E,F decision;

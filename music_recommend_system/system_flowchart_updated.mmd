@@ -1,0 +1,76 @@
+graph TD
+    subgraph 用户层
+        A[用户]
+    end
+    
+    subgraph 前端应用层
+        B[音乐推荐前端]
+    end
+    
+    subgraph API接口层
+        C[注册/登录接口]
+        D[个性化推荐接口]
+        E[热门歌曲接口]
+        F[用户行为接口]
+    end
+    
+    subgraph 业务逻辑层
+        G[用户管理模块]
+        H[推荐管理模块]
+        I[数据统计模块]
+    end
+    
+    subgraph 数据处理层
+        J[用户行为分析]
+        K[音乐内容分析]
+        L[数据清洗模块]
+    end
+    
+    subgraph 推荐算法层
+        M[基于内容的推荐]
+        N[协同过滤推荐]
+        O[混合推荐算法]
+    end
+    
+    subgraph 数据存储层
+        P[用户数据库]
+        Q[音乐数据库]
+        R[用户行为数据库]
+    end
+    
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    B --> F
+    
+    C --> G
+    D --> H
+    E --> H
+    F --> H
+    
+    G --> J
+    H --> J
+    H --> K
+    I --> J
+    
+    J --> L
+    K --> L
+    
+    L --> M
+    L --> N
+    M --> O
+    N --> O
+    
+    O --> H
+    
+    J --> R
+    K --> Q
+    G --> P
+    
+    P --> G
+    Q --> K
+    R --> J
+    
+    classDef box fill:#ffffff,stroke:#000000,stroke-width:2px,font-size:14px;
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R box;

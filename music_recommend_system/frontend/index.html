@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐推荐系统 - 首页</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>音乐推荐系统</h1>
+            <div class="user-info">
+                <span id="username">访客</span>
+                <button id="logoutBtn" class="btn btn-secondary">退出登录</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 曲风选择 -->
+        <section class="section">
+            <h2>选择您喜欢的曲风</h2>
+            <div class="style-selection">
+                <div class="style-buttons">
+                    <button class="style-btn" data-style="流行">流行</button>
+                    <button class="style-btn" data-style="古风">古风</button>
+                    <button class="style-btn" data-style="说唱">说唱</button>
+                    <button class="style-btn" data-style="摇滚">摇滚</button>
+                    <button class="style-btn" data-style="民谣">民谣</button>
+                </div>
+                <button id="updateStyleBtn" class="btn btn-primary">更新偏好</button>
+            </div>
+            <div id="styleMessage"></div>
+        </section>
+
+        <!-- 个性化推荐 -->
+        <section class="section">
+            <h2>为您推荐</h2>
+            <div class="song-list" id="recommendList">
+                <p>加载中...</p>
+            </div>
+        </section>
+
+        <!-- 热门歌曲 -->
+        <section class="section">
+            <h2>热门歌曲</h2>
+            <div class="song-list" id="hotList">
+                <p>加载中...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>

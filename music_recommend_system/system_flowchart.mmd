@@ -1,0 +1,18 @@
+graph TD
+    A[用户] --> B[个性化推荐服务]
+    A --> C[系统管理]
+    B --> D[用户行为分析]
+    B --> E[音乐内容分析]
+    C --> F[用户管理]
+    C --> G[音乐库管理]
+    D --> H[数据处理模块]
+    E --> H
+    F --> H
+    G --> H
+    H --> I[数据库]
+    I --> J[推荐算法]
+    J --> K[推荐结果生成]
+    K --> B
+    
+    classDef box fill:#ffffff,stroke:#000000,stroke-width:2px,font-size:14px;
+    class A,B,C,D,E,F,G,H,I,J,K box;
